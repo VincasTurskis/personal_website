@@ -8,6 +8,7 @@ public class PersonalWebsiteBackendApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(PersonalWebsiteBackendApplication.class, args);
+		System.out.println("Custom log");
 	}
 
 }

@@ -7,6 +7,17 @@ export default function Contact()
 {
     function handleSubmit(formData)
     {
+        const requestOptions = {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ 
+                name: formData.get("personName"),
+                email: formData.get("email"),
+                Message: formData.get("body")
+            })
+        };
+        fetch("http://localhost:8080/sendEmail", requestOptions)
+        .then((response) => (console.log("Sent the request")))
         console.log("You have submitted data\n:",
             `Name: ${formData.get("personName")}\n`,
             `Email: ${formData.get("email")}\n`,
