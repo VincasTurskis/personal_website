@@ -22,6 +22,7 @@
 
 # auth
 auth/
+tokens/
 
 # misc
 .DS_Store
