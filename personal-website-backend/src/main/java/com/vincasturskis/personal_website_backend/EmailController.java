@@ -12,12 +12,13 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 @RestController
 public class EmailController {
+
     @Autowired
     private EmailService emailService;
     
     @PostMapping(
         value = "/sendEmail", consumes = "application/json", produces = "application/json")
-    @CrossOrigin(origins = "http://localhost:3000")
+    @CrossOrigin(origins = {"http://localhost:3000", "https://vincasturskis.netlify.app"})
     public String sendEmail(@RequestBody String entity) {
         
         try {
