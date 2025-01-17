@@ -5,6 +5,7 @@ import java.util.Properties;
 
 import org.springframework.stereotype.Component;
 
+import com.google.api.client.googleapis.json.GoogleJsonResponseException;
 import com.google.api.services.gmail.Gmail;
 
 import jakarta.mail.*;
@@ -53,6 +54,12 @@ public class EmailServiceImpl implements EmailService {
         String subject = "(Personal Website) New Message From \"" + data.getName() + "\" (" + data.getEmail() + ")";
         MimeMessage email = createEmail(RECEIVER_EMAIL, SENDER_EMAIL, subject, emailBody);
         Message gmailMessage = createMessageWithEmail(email);
-        service.users().messages().send("me", gmailMessage).execute();
+        try
+        {
+            service.users().messages().send("me", gmailMessage).execute();
+        }
+        catch (GoogleJsonResponseException e) {
+            System.out.println("Google API Error: " + e.getDetails());
+        }
     }
 }
