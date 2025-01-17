@@ -2,9 +2,12 @@ package com.vincasturskis.personal_website_backend;
 
 import java.beans.JavaBean;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 @JavaBean
 public class EmailData
 {
+    @JsonProperty("name")
     private String name;
 
     public String getName() {
@@ -15,7 +18,7 @@ public class EmailData
         this.name = name;
     }
 
-
+    @JsonProperty("email")
     private String email;
     
     public void setEmail(String email) {
@@ -26,6 +29,7 @@ public class EmailData
         return email;
     }
 
+    @JsonProperty("body")
     private String body;
 
     public String getBody() {

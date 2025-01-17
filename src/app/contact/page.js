@@ -13,7 +13,7 @@ export default function Contact()
             body: JSON.stringify({ 
                 name: formData.get("personName"),
                 email: formData.get("email"),
-                Message: formData.get("body")
+                body: formData.get("body")
             })
         };
         fetch("http://localhost:8080/sendEmail", requestOptions)
@@ -25,13 +25,18 @@ export default function Contact()
     }
     return (
         <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center">
+            <div>
+                <h1>Contact Vincas Turskis</h1>
+            </div>
             <div className="row-start-2">
                 <form action={handleSubmit}>
                     <p><label htmlFor='personName'>Your name:</label></p>
                     <input className={Styles.inputField} type='text' id='personName' name='personName' size='10' />
                     <br />
+                    <br />
                     <p><label htmlFor='emailField'>Your email address:</label></p>
                     <input className={Styles.inputField} type='email' id='email' name='email' size='10' />
+                    <br />
                     <br />
                     <p><label htmlFor='body'>Your message:</label></p>
                     <textarea className={Styles.inputField} id="body" name="body"></textarea>
