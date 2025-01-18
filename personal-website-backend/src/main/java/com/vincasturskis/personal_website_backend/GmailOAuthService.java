@@ -19,10 +19,10 @@ import java.util.Collections;
 import java.net.URLDecoder;
 public class GmailOAuthService {
 
-    private static final String CLIENT_SECRET_PATH = "auth/credentials.json";
+    private static final String CLIENT_SECRET_PATH = "/etc/secrets/auth/credentials.json";
     private static final String APPLICATION_NAME = "Gmail API Java Sender";
     private static final JsonFactory JSON_FACTORY = GsonFactory.getDefaultInstance();
-    private static final String TOKENS_DIRECTORY_PATH = "tokens";
+    private static final String TOKENS_DIRECTORY_PATH = "/etc/secrets/tokens";
 
     private static Credential createCredential(GoogleAuthorizationCodeFlow flow) throws Exception
     {
@@ -51,7 +51,6 @@ public class GmailOAuthService {
 
     public static Gmail getGmailService() throws Exception {
         HttpTransport httpTransport = GoogleNetHttpTransport.newTrustedTransport();
-
         // Load client secrets
         GoogleAuthorizationCodeFlow flow = new GoogleAuthorizationCodeFlow.Builder(
             httpTransport, 
