@@ -2,3 +2,5 @@ target/*
 !target/*.jar
 .git/
 tokens/
+credentials.env
+etc/secrets/

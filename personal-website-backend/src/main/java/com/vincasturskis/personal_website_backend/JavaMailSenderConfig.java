@@ -12,8 +12,8 @@ public class JavaMailSenderConfig {
 
     // I'm using environment variables for this, because the hosting service (Render) is too complicated to set up with secrets.
     // If someone hacks this, they'll get access to a throwaway gmail account.
-    private final String USERNAME_ENV_VAR = "USERNAME";
-    private final String PASSWORD_ENV_VAR = "PASSWORD";
+    public static final String USERNAME_ENV_VAR = "USERNAME";
+    public static final String PASSWORD_ENV_VAR = "PASSWORD";
 
     @Bean
     JavaMailSender getJavaMailSender() {
@@ -29,6 +29,7 @@ public class JavaMailSenderConfig {
         props.put("mail.smtp.auth", "true");
         props.put("mail.smtp.starttls.enable", "true");
         props.put("mail.smtp.starttls.required", "true");
+        props.put("mail.smtp.ssl.trust", "smtp.gmail.com");
         props.put("mail.debug", "true"); // Optional: Enable for debugging
 
         return mailSender;

@@ -15,9 +15,6 @@ import jakarta.mail.Message.RecipientType;
 public class EmailServiceImpl implements EmailService {
 
     private final String RECEIVER_EMAIL = "vincas.turskis@gmail.com";
-    //private final String SUBJECT = "New Message From Personal Website";
-    private final String SENDER_EMAIL = "personalwebsitevincasturskis@gmail.com";
-
     private final JavaMailSender mailSender;
 
     public EmailServiceImpl(JavaMailSender mailSender)
@@ -46,7 +43,7 @@ public class EmailServiceImpl implements EmailService {
                 data.getBody();
         
         String subject = "(Personal Website) New Message From \"" + data.getName() + "\" (" + data.getEmail() + ")";
-        MimeMessage message = createEmailMessage(RECEIVER_EMAIL, SENDER_EMAIL, subject, emailBody);
+        MimeMessage message = createEmailMessage(RECEIVER_EMAIL, System.getenv(JavaMailSenderConfig.USERNAME_ENV_VAR), subject, emailBody);
 
         mailSender.send(message);
 
