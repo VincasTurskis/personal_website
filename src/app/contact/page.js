@@ -38,7 +38,7 @@ export default function Contact()
                 body: DOMPurify.sanitize(formData.get("body"))
             })
         };
-        await fetch("http://localhost:8080/sendEmail", requestOptions)
+        await fetch("https://personal-website-email.onrender.com/sendEmail", requestOptions)
             .then((response) => {
                 if(response.ok)
                 {
