@@ -1,3 +1,19 @@
+#Use an official OpenJDK base image
+FROM openjdk:17-jdk-slim as builder
+
+#Set the working directory inside the container
+WORKDIR /app
+
+#Copy the pom.xml and download the project dependencies (if needed)
+COPY pom.xml .
+RUN mvn dependency:go-offline
+
+#Copy the entire source code into the container
+COPY src ./src
+
+#Build the project
+RUN mvn clean package -DskipTests
+
 FROM openjdk:17-jdk-slim
 
 # Set the working directory in the container
