@@ -5,7 +5,21 @@ import Styles from './styles.module.css';
 import DOMPurify from 'dompurify';
 import Snackbar from '@mui/material/Snackbar';
 import SnackbarContent from '@mui/material/SnackbarContent';
+import { useFormStatus } from "react-dom";
+import CircularProgress from '@mui/material/CircularProgress';
+import Button from '@mui/material/Button';
 
+
+function SubmitButton()
+{
+    const { pending } = useFormStatus();
+    return (
+        <Button className={Styles.button} disabled={pending} type='submit'>
+            {pending ? <CircularProgress sx={{color:"white"}} size="1.5rem"/> : <p className="text-base tracking-wide font-semibold">Submit</p>}
+            
+        </Button>
+    )
+}
 
 export default function Contact()
 {
@@ -34,6 +48,10 @@ export default function Contact()
                 {
                     setOpenFail(true);
                 }
+            })
+            .catch((error) => {
+                console.log(error);
+                setOpenFail(true);
             });
     }
     function handleToastClose()
@@ -93,7 +111,7 @@ export default function Contact()
                         <textarea required className={Styles.inputField} id="body" name="body"></textarea>
                         <br />
                         <br />
-                        <input className={Styles.button} type="submit" value="Submit"></input>
+                        <SubmitButton />
                     </form>
                 </div>
             </div>
