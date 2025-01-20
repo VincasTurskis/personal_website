@@ -6,6 +6,7 @@
    border-radius: 5px;
    outline: none;
    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+   color: black;
  }
 
  .button {
@@ -19,6 +20,7 @@
    border-radius: 5px;
    cursor: pointer;
    transition: transform 0.1s ease, background-color 0.3s ease;
+
  }
  .button:hover {
    background-color: #0056b3;

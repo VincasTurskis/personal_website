@@ -93,7 +93,7 @@ export default function Contact()
                 message = {<p>Something went wrong</p>}
                 />
             </Snackbar>
-            <div className="min-h-screen bg-green-50 grid grid-rows-[20px_1fr_20px] grid-cols-[20px_1fr_20px] items-center justify-items-center">
+            <div className="min-h-screen bg-green-50 dark:bg-slate-800 grid grid-rows-[20px_1fr_20px] grid-cols-[20px_1fr_20px] items-center justify-items-center">
                 <div className="col-start-2 row-start-2">
                     <form action={handleSubmit} name="contactForm">
                         <h1 className="text-5xl font-bold">Get In Touch:</h1>
