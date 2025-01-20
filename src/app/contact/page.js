@@ -14,9 +14,8 @@ function SubmitButton()
 {
     const { pending } = useFormStatus();
     return (
-        <Button className={Styles.button} disabled={pending} type='submit'>
+        <Button className={Styles.button} variant="contained" disabled={pending} type='submit'>
             {pending ? <CircularProgress sx={{color:"white"}} size="1.5rem"/> : <p className="text-base tracking-wide font-semibold">Submit</p>}
-            
         </Button>
     )
 }
