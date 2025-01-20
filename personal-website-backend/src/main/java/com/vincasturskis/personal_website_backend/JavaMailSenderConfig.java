@@ -10,6 +10,8 @@ import org.springframework.mail.javamail.JavaMailSenderImpl;
 @Configuration
 public class JavaMailSenderConfig {
 
+    // I'm using environment variables for this, because the hosting service (Render) is too complicated to set up with secrets.
+    // If someone hacks this, they'll get access to a throwaway gmail account.
     private final String USERNAME_ENV_VAR = "USERNAME";
     private final String PASSWORD_ENV_VAR = "PASSWORD";
 
