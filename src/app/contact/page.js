@@ -93,7 +93,10 @@ export default function Contact()
                 message = {<p>Something went wrong</p>}
                 />
             </Snackbar>
-            <div className="min-h-screen bg-green-50 dark:bg-slate-800 grid grid-rows-[20px_1fr_20px] grid-cols-[20px_1fr_20px] items-center justify-items-center">
+            <div className="min-h-screen bg-green-50 dark:bg-slate-800 grid grid-rows-[100px_1fr_20px] grid-cols-[1fr_3fr_1fr] items-center justify-items-center">
+                <div className="col-start-3 row-start-1">
+                    <Button className={Styles.button} variant="contained" href="https://github.com/VincasTurskis/personal_website" target="_blank" rel="noopener noreferrer"><p className="text-base tracking-wide font-semibold">See Source Code (GitHub)</p></Button>
+                </div>
                 <div className="col-start-2 row-start-2">
                     <form action={handleSubmit} name="contactForm">
                         <h1 className="text-5xl font-bold">Get In Touch:</h1>

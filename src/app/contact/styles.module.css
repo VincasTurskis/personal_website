@@ -10,8 +10,8 @@
  }
 
  .button {
-   height: 40px;
-   width: 100px;
+   height: auto;
+   width: auto;
    padding: 10px 20px;
    font-size: 16px;
    color: white;
